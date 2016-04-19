@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        loadDB();
 
     }
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
     View.OnClickListener c = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent goToTools = new Intent(getBaseContext(), Tools.class);
+            Intent goToTools = new Intent(getBaseContext(), Tester.class);
             startActivity(goToTools);
         }
     };
