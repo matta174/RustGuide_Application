@@ -18,7 +18,7 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/quantityInText"
-        android:text="Enter Quantity of Items"
+        android:hint="Enter Quantity of Items"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/secondsPerItem"
         android:layout_alignStart="@+id/secondsPerItem"
@@ -33,14 +33,15 @@
         android:layout_below="@+id/quantityInText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
-        android:text="Enter Seconds per Item" />
+        android:hint="Enter Seconds per Item" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Begin Timer"
         android:id="@+id/timer_btn"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp" />
 
 </RelativeLayout>
