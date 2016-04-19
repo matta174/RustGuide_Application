@@ -44,7 +44,7 @@ public class CraftingCalculator extends AppCompatActivity {
 
     private void initializeApp() {
         quantityInText = (EditText) findViewById(R.id.quantityInText);
-        secondsPerItemIn = (EditText) findViewById(R.id.quantityInText);
+        secondsPerItemIn = (EditText) findViewById(R.id.secondsPerItem);
         timer_btn = (Button) findViewById(R.id.timer_btn);
         text1 = (TextView) findViewById(R.id.textView1);
         calculateTime();

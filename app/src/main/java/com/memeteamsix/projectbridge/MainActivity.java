@@ -3,9 +3,6 @@ package com.memeteamsix.projectbridge;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,7 +19,6 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -73,14 +69,14 @@ public class MainActivity extends AppCompatActivity
     View.OnClickListener b = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent goToDatabase = new Intent(getBaseContext(), database.class);
+            Intent goToDatabase = new Intent(getBaseContext(), Database.class);
             startActivity(goToDatabase);
         }
     };
     View.OnClickListener c = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent goToTools = new Intent(getBaseContext(), tools.class);
+            Intent goToTools = new Intent(getBaseContext(), Tools.class);
             startActivity(goToTools);
         }
     };
