@@ -2,11 +2,128 @@
   "category": [
     {
       "name": "Weapons",
-      "subcategory": []
+      "subcategory": [
+        {
+          "name": "Shotguns",
+          "items": [
+            {
+              "name": "",
+              "img": "",
+              "desc": "",
+              "cost": [
+                {
+                  "elementID": [  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sub-Machine Guns",
+          "items": []
+        },
+        {
+          "name": "Rifles",
+          "items": []
+        }
+      ]
     },
     {
       "name": "Construction",
-      "subcategory": []
+      "subcategory": [
+        {
+          "name": "Deployable",
+          "items": []
+        },
+        {
+          "name": "Structure",
+          "items": []
+        },
+        {
+          "name": "Barricade",
+          "items": []
+        },
+        {
+          "name": "Resource Collection",
+          "items": []
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "subcategory": [
+        {
+          "name": "Container",
+          "items": []
+        },
+        {
+          "name": "Appliances",
+          "items": []
+        },
+        {
+          "name": "Structure",
+          "items": []
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "subcategory": [
+        {
+          "name": "Mining",
+          "items": [
+            {
+              "name": "High Quality Metal",
+              "img": "highQualitMetal",
+              "desc": "HQ Metal Desc"
+            },
+            {
+              "name": "Metal",
+              "img": "metal",
+              "desc": "Metal Desc"
+            },
+            {
+              "name": "Stone",
+              "img": "stone",
+              "desc": "Stone Desc"
+            },
+            {
+              "name": "Sulfur",
+              "img": "sulfur",
+              "desc": "Sulfur Desc"
+            }
+          ]
+        },
+        {
+          "name": "Harvesting",
+          "items": [
+            {
+              "name": "Animal Fat",
+              "img": "animalFat",
+              "desc": "Animal Fat Desc"
+            },
+            {
+              "name": "Cloth",
+              "img": "cloth",
+              "desc": "Cloth Desc"
+            },
+            {
+              "name": "Leather",
+              "img": "leather",
+              "desc": "Leather Desc"
+            },
+            {
+              "name": "Wood",
+              "img": "wood",
+              "desc": "Wood Desc"
+            }
+          ]
+        },
+        {
+          "name": "Monument",
+          "items": []
+        }
+      ]
     }
   ]
 }
