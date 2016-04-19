@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
     View.OnClickListener c = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent goToTools = new Intent(getBaseContext(), Tester.class);
+            Intent goToTools = new Intent(getBaseContext(), Tools.class);
             startActivity(goToTools);
         }
     };
