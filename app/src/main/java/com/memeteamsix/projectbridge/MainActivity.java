@@ -1,9 +1,11 @@
 package com.memeteamsix.projectbridge;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,9 +17,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Button guides_btn,database_btn,tools_btn,links_btn;
+
+    //TAG for log files
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +73,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //LoadDB tester please ignore
+        try{
+            Log.i(TAG,loadDB().toString());
+        }catch (Exception e){
+            Log.i(TAG,"Failed to load");
+        }
     }
 
     @Override
@@ -120,5 +137,21 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    protected JSONArray loadDB() {
+        JSONObject json = null;
+        try{
+            AssetManager am = getAssets();
+            InputStream is = am.open("db");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new JSONObject(new String(buffer, "UTF-8"));
+            return json.getJSONArray("category");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

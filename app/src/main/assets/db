@@ -3,7 +3,10 @@
     {
       "name": "Weapons",
       "subcategory": []
+    },
+    {
+      "name": "Construction",
+      "subcategory": []
     }
-
   ]
 }
