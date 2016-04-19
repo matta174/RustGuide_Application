@@ -6,7 +6,6 @@ package com.memeteamsix.projectbridge;
 public class Cost {
     public Cost(int catIndex, int subcatIndex, int itemIndex) {
 
-        Category cat = new Category();
 
         String picName;
         String name;
