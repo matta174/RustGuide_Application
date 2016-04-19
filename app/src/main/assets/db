@@ -12,7 +12,8 @@
               "desc": "",
               "cost": [
                 {
-                  "elementID": [  ]
+                  "elementID": [  ],
+                  "elementQty": 5
                 }
               ]
             }

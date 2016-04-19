@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     protected JSONArray loadDB() {
-        JSONObject json = null;
+        JSONObject obj = null;
         try{
             AssetManager am = getAssets();
             InputStream is = am.open("db");
@@ -171,25 +171,31 @@ public class MainActivity extends AppCompatActivity
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new JSONObject(new String(buffer, "UTF-8"));
-            JSONArray arr = json.getJSONArray("category");
+            obj = new JSONObject(new String(buffer, "UTF-8"));
+            JSONArray arr = obj.getJSONArray("category");
             for (int i = 0; i < arr.length(); i++)
             {
                 String post_id = arr.getJSONObject(i).getString("name");
-                JSONArray arr2 = json.getJSONArray("subcategory");
+                JSONArray arr2 = obj.getJSONArray("subcategory");
+                JSONObject obj2 = arr.getJSONObject(i);
                 for (int i2 = 0; i2 < arr2.length(); i2++)
                 {
                     String post_id2 = arr2.getJSONObject(i2).getString("name");
-                    JSONArray arr3 = json.getJSONArray("items");
+                    JSONArray arr3 = obj2.getJSONArray("items");
+                    JSONObject obj3 = arr2.getJSONObject(i2);
                     for (int i3 = 0; i3 < arr3.length(); i3++)
                     {
                         String post_id3 = arr3.getJSONObject(i3).getString("name");
                         String post_img = arr3.getJSONObject(i3).getString("img");
                         String post_desc = arr3.getJSONObject(i3).getString("desc");
-                        JSONArray arr4 = json.getJSONArray("cost");
+                        JSONArray arr4 = obj3.getJSONArray("cost");
+                        JSONObject obj4 = arr3.getJSONObject(i3);
                         for (int i4 = 0; i4 < arr4.length(); i4++)
                         {
-
+                            int post_qty = arr4.getJSONObject(i4).getInt("elementQty");
+                            JSONArray arr5 = obj4.getJSONArray("elementID");
+                            JSONObject obj5 = arr
+                            for (int i5 = 0; i5 < arr)
                         }
                     }
                 }
