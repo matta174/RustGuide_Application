@@ -137,4 +137,42 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    protected JSONArray loadDB() {
+        JSONObject json = null;
+        try{
+            AssetManager am = getAssets();
+            InputStream is = am.open("db");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new JSONObject(new String(buffer, "UTF-8"));
+            JSONArray arr = json.getJSONArray("category");
+            for (int i = 0; i < arr.length(); i++)
+            {
+                String post_id = arr.getJSONObject(i).getString("name");
+                JSONArray arr2 = json.getJSONArray("subcategory");
+                for (int i2 = 0; i2 < arr2.length(); i2++)
+                {
+                    String post_id2 = arr2.getJSONObject(i2).getString("name");
+                    JSONArray arr3 = json.getJSONArray("items");
+                    for (int i3 = 0; i3 < arr3.length(); i3++)
+                    {
+                        String post_id3 = arr3.getJSONObject(i3).getString("name");
+                        String post_img = arr3.getJSONObject(i3).getString("img");
+                        String post_desc = arr3.getJSONObject(i3).getString("desc");
+                        JSONArray arr4 = json.getJSONArray("cost");
+                        for (int i4 = 0; i4 < arr4.length(); i4++)
+                        {
+
+                        }
+                    }
+                }
+            }
+            return json.getJSONArray("category");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
