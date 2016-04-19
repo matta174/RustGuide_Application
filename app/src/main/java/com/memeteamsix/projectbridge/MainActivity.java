@@ -17,35 +17,60 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private Button guides_btn,database_btn,tools_btn,links_btn;
+    private Button guides_btn;
+    private Button database_btn;
+    private Button tools_btn;
+    private Button links_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       int x = 5;
+        int x = 5;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button fab = (Button) findViewById(R.id.guides_btn);
+        Button fab2 = (Button) findViewById(R.id.database_btn);
+        Button fab3 = (Button) findViewById(R.id.tools_btn);
+        Button fab4 = (Button) findViewById(R.id.links_btn);
 
-        View.OnClickListener a = (V) -> {
-            Intent goToGuides = new Intent(getBaseContext(),guides.class);
+    }
+
+    View.OnClickListener a = new View.OnClickListener(){
+        @Override
+        public void onClick(View v)
+        {
+            Intent goToGuides = new Intent(getBaseContext(), Guides.class);
             startActivity(goToGuides);
-        };
-        View.OnClickListener b = (V) -> {
-            Intent goToDatabase = new Intent(getBaseContext(),database.class);
+        }
+    };
+    View.OnClickListener b = new View.OnClickListener(){
+        @Override
+        public void onClick(View v)
+        {
+            Intent goToDatabase = new Intent(getBaseContext(), database.class);
             startActivity(goToDatabase);
-        };
-        View.OnClickListener c = (V) -> {
-            Intent goToTools = new Intent(getBaseContext(),tools.class);
+        }
+    };
+    View.OnClickListener c = new View.OnClickListener(){
+        @Override
+        public void onClick(View v)
+        {
+            Intent goToTools = new Intent(getBaseContext(), tools.class);
             startActivity(goToTools);
-        };
-        View.OnClickListener d = (V) -> {
-            Intent goToLinks = new Intent(getBaseContext(),links.class);
+        }
+    };
+    View.OnClickListener d = new View.OnClickListener(){
+        @Override
+        public void onClick(View v)
+        {
+            Intent goToLinks = new Intent(getBaseContext(), Links.class);
             startActivity(goToLinks);
-        };
-
+        }
+    };
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +79,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
+        */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
