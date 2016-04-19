@@ -10,7 +10,10 @@ public class Subcategory {
     private String name = "";
     private List<Item> items = new ArrayList<Item>();
 
-
+    public Subcategory(String name, List<Item> items) {
+        this.name = name;
+        this.items = items;
+    }
 
     public String getName() {
         return name;

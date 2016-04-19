@@ -1,9 +1,11 @@
 package com.memeteamsix.projectbridge;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,62 +17,44 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private Button guides_btn;
-    private Button database_btn;
-    private Button tools_btn;
-    private Button links_btn;
+    private Button guides_btn,database_btn,tools_btn,links_btn;
+
+    //TAG for log files
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int x = 5;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button fab = (Button) findViewById(R.id.guides_btn);
-        Button fab2 = (Button) findViewById(R.id.database_btn);
-        Button fab3 = (Button) findViewById(R.id.tools_btn);
-        Button fab4 = (Button) findViewById(R.id.links_btn);
 
-    }
-
-    View.OnClickListener a = new View.OnClickListener(){
-        @Override
-        public void onClick(View v)
-        {
-            Intent goToGuides = new Intent(getBaseContext(), Guides.class);
+        View.OnClickListener a = (V) -> {
+            Intent goToGuides = new Intent(getBaseContext(),guides.class);
             startActivity(goToGuides);
-        }
-    };
-    View.OnClickListener b = new View.OnClickListener(){
-        @Override
-        public void onClick(View v)
-        {
-            Intent goToDatabase = new Intent(getBaseContext(), database.class);
+        };
+        View.OnClickListener b = (V) -> {
+            Intent goToDatabase = new Intent(getBaseContext(),database.class);
             startActivity(goToDatabase);
-        }
-    };
-    View.OnClickListener c = new View.OnClickListener(){
-        @Override
-        public void onClick(View v)
-        {
-            Intent goToTools = new Intent(getBaseContext(), tools.class);
+        };
+        View.OnClickListener c = (V) -> {
+            Intent goToTools = new Intent(getBaseContext(),tools.class);
             startActivity(goToTools);
-        }
-    };
-    View.OnClickListener d = new View.OnClickListener(){
-        @Override
-        public void onClick(View v)
-        {
-            Intent goToLinks = new Intent(getBaseContext(), Links.class);
+        };
+        View.OnClickListener d = (V) -> {
+            Intent goToLinks = new Intent(getBaseContext(),links.class);
             startActivity(goToLinks);
-        }
-    };
-        /*
+        };
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +63,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-        */
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -88,6 +72,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //LoadDB tester please ignore
+        try{
+            Log.i(TAG,loadDB().toString());
+        }catch (Exception e){
+            Log.i(TAG,"Failed to load");
+        }
     }
 
     @Override

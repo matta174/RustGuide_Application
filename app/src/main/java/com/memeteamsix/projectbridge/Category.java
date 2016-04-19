@@ -24,6 +24,12 @@ public class Category {
         return subs;
     }
 
+    public Category(String picName, String name, List<Subcategory> subs) {
+        this.picName = picName;
+        this.name = name;
+        this.subs = subs;
+    }
+
     public void setSubs(List<Subcategory> subs) {
         this.subs = subs;
     }
