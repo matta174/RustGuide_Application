@@ -1,8 +1,14 @@
 package com.memeteamsix.projectbridge;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompatBase;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +28,7 @@ public class CraftingCalculator extends AppCompatActivity {
     private double timeIn = 0;
     private double quantityIn = 0;
     private double timeInMilli = 0;
+    private NotificationCompat.Builder nBuilder;
 
 
     private TextView text1;
@@ -39,7 +46,21 @@ public class CraftingCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_craftingcalculator);
 
         initializeApp();
+        buildNotification();
 
+    }
+
+    private void buildNotification() {
+        nBuilder =
+                new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_timer_finished)
+                .setContentTitle("Crafting finished.")
+                .setContentText("Your resources have finished crafting");
+
+        Intent calculatorIntent = new Intent(this, CraftingCalculator.class);
+        PendingIntent calculatorPendingIntent = PendingIntent.getActivity(this, 0, calculatorIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        nBuilder.setContentIntent(calculatorPendingIntent);
     }
 
     private void initializeApp() {
@@ -72,6 +93,7 @@ public class CraftingCalculator extends AppCompatActivity {
 
                     public void onFinish() {
                         text1.setText("done!");
+                        sendNotification();
                     }
                 }.start();
 
@@ -80,4 +102,10 @@ public class CraftingCalculator extends AppCompatActivity {
         }); //end onclick listener
 
     }//end calculate time
+
+    private void sendNotification() {
+        int notificationId = 001;
+        NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(notificationId, nBuilder.build());
+    }
 }//end initialize app
