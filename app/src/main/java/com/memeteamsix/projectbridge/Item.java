@@ -23,6 +23,12 @@ public class Item {
         this.cost = cost;
     }
 
+    public Item(String name, String picName, String desc) {
+        this.name = name;
+        this.picName = picName;
+        this.desc = desc;
+    }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }

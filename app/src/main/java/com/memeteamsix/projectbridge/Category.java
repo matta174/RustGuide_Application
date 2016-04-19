@@ -41,5 +41,14 @@ public class Category {
         this.picName = picName;
     }
 
+    public String toString() {
+        String cat = new String();
+        cat = "Name: " + this.getName()
+                + "\nSubcategories: ";
+        for (int i = 0; i < this.getSubs().size(); i++) {
+            cat += this.getSubs().get(i).getName() + "\n";
+        }
+        return cat;
+    }
 
 }
