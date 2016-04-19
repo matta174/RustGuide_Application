@@ -52,14 +52,12 @@ public class CraftingCalculator extends AppCompatActivity {
 
     public void calculateTime() {
 
-        timeIn = Double.parseDouble(secondsPerItemIn.getText().toString());
-        quantityIn = Double.parseDouble(quantityInText.getText().toString());
-        timeInMilli = (timeIn*quantityIn)*1000;
-
-
         timer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                timeIn = Double.parseDouble(secondsPerItemIn.getText().toString());
+                quantityIn = Double.parseDouble(quantityInText.getText().toString());
+                timeInMilli = (timeIn*quantityIn)*1000;
                 new CountDownTimer((long)timeInMilli, 1000) { // adjust the milli seconds here
 
                     public void onTick(long millisUntilFinished) {
