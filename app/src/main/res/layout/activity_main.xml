@@ -21,5 +21,12 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guides"
+        android:id="@+id/guides_btn"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </android.support.v4.widget.DrawerLayout>

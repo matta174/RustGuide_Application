@@ -15,21 +15,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Button guides_btn,database_btn,tools_btn,links_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       int x = 5;
+        int x = 5;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button fab = (Button) findViewById(R.id.guides_btn);
+        Button fab2 = (Button) findViewById(R.id.database_btn);
+        Button fab3 = (Button) findViewById(R.id.tools_btn);
 
-        View.OnClickListener a = (V) -> {
+        fab.setOnClickListener(a);
+        fab2.setOnClickListener(b);
+        fab3.setOnClickListener(c);
+    }
+    View.OnClickListener a = (V) -> {
             Intent goToGuides = new Intent(getBaseContext(),guides.class);
             startActivity(goToGuides);
         };
@@ -45,7 +51,7 @@ public class MainActivity extends AppCompatActivity
             Intent goToLinks = new Intent(getBaseContext(),links.class);
             startActivity(goToLinks);
         };
-
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +60,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
+        */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
