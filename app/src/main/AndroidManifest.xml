@@ -18,7 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CraftingCalculator" />
+        <activity
+            android:name=".CraftingCalculator"
+            android:label="Crafting Calculator"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>
