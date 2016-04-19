@@ -1,14 +1,13 @@
 package com.memeteamsix.projectbridge;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jwnicholson on 4/18/2016.
  */
 public class Category {
     private String name = "";
-    private List<Subcategory> subs = new ArrayList<Subcategory>();
+    private ArrayList<Subcategory> subs = new ArrayList<Subcategory>();
     private String picName;
 
 
@@ -20,17 +19,17 @@ public class Category {
         this.name = name;
     }
 
-    public List<Subcategory> getSubs() {
+    public ArrayList<Subcategory> getSubs() {
         return subs;
     }
 
-    public Category(String picName, String name, List<Subcategory> subs) {
+    public Category(String picName, String name, ArrayList<Subcategory> subs) {
         this.picName = picName;
         this.name = name;
         this.subs = subs;
     }
 
-    public void setSubs(List<Subcategory> subs) {
+    public void setSubs(ArrayList<Subcategory> subs) {
         this.subs = subs;
     }
 
