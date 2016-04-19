@@ -21,6 +21,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     private Button database_btn;
     private Button tools_btn;
     private Button links_btn;
+
+    private ArrayList<Category> db = new ArrayList<Category>();
 
     //TAG for log files
     private static final String TAG = "MainActivity";
@@ -100,17 +104,6 @@ public class MainActivity extends AppCompatActivity
         });
         */
 
-
-
-
-        //LoadDB tester please ignore
-        try{
-            Log.i(TAG,loadDB().toString());
-        }catch (Exception e){
-            Log.i(TAG,"Failed to load");
-        }
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -168,7 +161,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    protected JSONArray loadDB() {
+    protected void loadDB() {
         JSONObject obj = null;
         try{
             AssetManager am = getAssets();
@@ -182,31 +175,40 @@ public class MainActivity extends AppCompatActivity
             for (int i = 0; i < arr.length(); i++)
             {
                 String post_id = arr.getJSONObject(i).getString("name");
+                String post_img = arr.getJSONObject(i).getString("img");
                 JSONArray arr2 = obj.getJSONArray("subcategory");
                 JSONObject obj2 = arr.getJSONObject(i);
+                ArrayList<Subcategory> subcatList = new ArrayList<Subcategory>();
                 for (int i2 = 0; i2 < arr2.length(); i2++)
                 {
                     String post_id2 = arr2.getJSONObject(i2).getString("name");
                     JSONArray arr3 = obj2.getJSONArray("items");
                     JSONObject obj3 = arr2.getJSONObject(i2);
+                    ArrayList<Item> itemList = new ArrayList<Item>();
                     for (int i3 = 0; i3 < arr3.length(); i3++)
                     {
                         String post_id3 = arr3.getJSONObject(i3).getString("name");
-                        String post_img = arr3.getJSONObject(i3).getString("img");
+                        String post_img2 = arr3.getJSONObject(i3).getString("img");
                         String post_desc = arr3.getJSONObject(i3).getString("desc");
                         JSONArray arr4 = obj3.getJSONArray("cost");
                         JSONObject obj4 = arr3.getJSONObject(i3);
+                        ArrayList<Cost> costList = new ArrayList<Cost>();
                         for (int i4 = 0; i4 < arr4.length(); i4++)
                         {
                             int post_qty = arr4.getJSONObject(i4).getInt("elementQty");
                             JSONArray arr5 = obj4.getJSONArray("elementID");
-                            JSONObject obj5 = arr
-                            for (int i5 = 0; i5 < arr)
+                            Cost cost = new Cost(post_qty, arr5.getInt(0), arr5.getInt(1));
+                            costList.add(cost);
                         }
+                        Item item = new Item(post_id3, post_img2, post_desc, costList);
+                        itemList.add(item);
                     }
+                    Subcategory subcat = new Subcategory(post_id2, itemList);
+                    subcatList.add(subcat);
                 }
+                Category cat = new Category(post_img, post_id, subcatList);
+                db.add(cat);
             }
-            return json.getJSONArray("category");
         }catch(Exception e){
             e.printStackTrace();
         }

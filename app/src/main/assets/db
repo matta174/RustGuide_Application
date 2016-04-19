@@ -2,6 +2,7 @@
   "category": [
     {
       "name": "Weapons",
+      "img": "",
       "subcategory": [
         {
           "name": "Shotguns",
@@ -31,6 +32,7 @@
     },
     {
       "name": "Construction",
+      "img": "",
       "subcategory": [
         {
           "name": "Deployable",
@@ -52,6 +54,7 @@
     },
     {
       "name": "Items",
+      "img": "",
       "subcategory": [
         {
           "name": "Container",
@@ -69,6 +72,7 @@
     },
     {
       "name": "Resources",
+      "img": "",
       "subcategory": [
         {
           "name": "Mining",
