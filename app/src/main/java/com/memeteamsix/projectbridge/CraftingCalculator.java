@@ -47,6 +47,7 @@ public class CraftingCalculator extends AppCompatActivity {
         secondsPerItemIn = (EditText) findViewById(R.id.quantityInText);
         timer_btn = (Button) findViewById(R.id.timer_btn);
         text1 = (TextView) findViewById(R.id.textView1);
+    }
 
     public void calculateTime() {
 
@@ -58,7 +59,7 @@ public class CraftingCalculator extends AppCompatActivity {
         timer_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new CountDownTimer(long(timeInMilli), 1000) { // adjust the milli seconds here
+                new CountDownTimer((long)timeInMilli, 1000) { // adjust the milli seconds here
 
                     public void onTick(long millisUntilFinished) {
 
@@ -81,5 +82,3 @@ public class CraftingCalculator extends AppCompatActivity {
 
     }//end calculate time
 }//end initialize app
-
-}
