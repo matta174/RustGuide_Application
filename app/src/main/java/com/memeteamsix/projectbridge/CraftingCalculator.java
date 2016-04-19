@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Matthew on 4/18/2016.
  */
-public class CrafticCalculator extends extends AppCompatActivity {
+public class CraftingCalculator extends AppCompatActivity {
 
     private EditText quantityIn;
     private EditText secondsPerItemIn;
