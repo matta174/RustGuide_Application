@@ -34,6 +34,11 @@
             android:name=".Links"
             android:label="Links"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Guides"
+            android:label="Guides"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
 
     </application>
