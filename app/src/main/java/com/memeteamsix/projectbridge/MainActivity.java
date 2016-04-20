@@ -1,7 +1,6 @@
 package com.memeteamsix.projectbridge;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,21 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private Button guides_btn;
     private Button database_btn;
     private Button tools_btn;
     private Button links_btn;
-
-    private ArrayList<Category> db = new ArrayList<Category>();
 
     //TAG for log files
     private static final String TAG = "MainActivity";
@@ -57,7 +47,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        loadDB();
+        DB db = new DB(this.getApplicationContext());
+        db.loadDB();
     }
 
     View.OnClickListener a = new View.OnClickListener() {
@@ -158,70 +149,5 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    protected void loadDB() {
-        JSONObject obj = null;
-        try{
-            AssetManager am = getAssets();
-            InputStream is = am.open("db");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            obj = new JSONObject(new String(buffer, "UTF-8"));
-            JSONArray arr = obj.getJSONArray("category");
-            Log.i(TAG,arr.toString());
-            for (int i = 0; i < arr.length(); i++)
-            {
-                String post_id = arr.getJSONObject(i).getString("name");
-                Log.i(TAG,post_id);
-                String post_img = arr.getJSONObject(i).getString("img");
-                JSONObject obj2 = arr.getJSONObject(i);
-                JSONArray arr2 = obj2.getJSONArray("subcategory");
-                Log.i(TAG,arr2.toString());
-                ArrayList<Subcategory> subcatList = new ArrayList<Subcategory>();
-                for (int i2 = 0; i2 < arr2.length(); i2++)
-                {
-                    String post_id2 = arr2.getJSONObject(i2).getString("name");
-                    JSONObject obj3 = arr2.getJSONObject(i2);
-                    JSONArray arr3 = obj3.getJSONArray("items");
-                    ArrayList<Item> itemList = new ArrayList<Item>();
-                    for (int i3 = 0; i3 < arr3.length(); i3++)
-                    {
-                        String post_id3 = arr3.getJSONObject(i3).getString("name");
-                        String post_img2 = arr3.getJSONObject(i3).getString("img");
-                        String post_desc = arr3.getJSONObject(i3).getString("desc");
-                        JSONObject obj4 = arr3.getJSONObject(i3);
-                        ArrayList<Cost> costList = new ArrayList<>();
-                        try {
-                            JSONArray arr4 = obj4.getJSONArray("cost");
-                            for (int i4 = 0; i4 < arr4.length(); i4++)
-                            {
-                                int post_qty = arr4.getJSONObject(i4).getInt("elementQty");
-                                JSONObject obj5 = arr4.getJSONObject(i4);
-                                JSONArray arr5 = obj5.getJSONArray("elementID");
-                                Cost cost = new Cost(post_qty, arr5.getInt(0), arr5.getInt(1));
-                                costList.add(cost);
-                            }
-                        }catch (JSONException e){
 
-                        }
-                        if (costList.isEmpty()){
-                            Item item = new Item(post_id3, post_img2, post_desc);
-                        }
-                        Item item = new Item(post_id3, post_img2, post_desc, costList);
-                        itemList.add(item);
-                        Log.i(TAG,post_id3 + "loaded.");
-                    }
-                    Subcategory subcat = new Subcategory(post_id2, itemList);
-                    subcatList.add(subcat);
-                    Log.i(TAG,post_id2 + "loaded.");
-                }
-                Category cat = new Category(post_img, post_id, subcatList);
-                db.add(cat);
-                Log.i(TAG,post_id + "loaded.");
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 }

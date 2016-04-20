@@ -21,8 +21,11 @@
         <activity
             android:name=".CraftingCalculator"
             android:label="Crafting Calculator"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Database"
+            android:label="Database"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
