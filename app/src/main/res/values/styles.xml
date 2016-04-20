@@ -17,4 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <string-array name="fuel_array">
+        <item>Low Grade Fuel</item>
+        <item>Wood</item>
+        </string-array>
+
 </resources>
