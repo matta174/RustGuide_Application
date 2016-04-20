@@ -22,8 +22,6 @@ public class Tools extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tools);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         Button fab = (Button) findViewById(R.id.craftingCalculator_btn);
         fab.setOnClickListener(a);
 
