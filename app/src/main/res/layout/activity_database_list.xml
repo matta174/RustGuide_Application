@@ -8,23 +8,11 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <include
-        layout="@layout/app_bar_database_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_database_list"
-        app:menu="@menu/activity_database_list_drawer" />
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="55dp"></ListView>
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="@color/rustRed" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -22,8 +22,6 @@ public class Guides extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guides);
         Button rustWebGuide = (Button) findViewById(R.id.rustGuide_btn);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         View.OnClickListener a = new View.OnClickListener() {
             @Override
