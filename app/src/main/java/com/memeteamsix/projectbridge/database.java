@@ -44,4 +44,14 @@ public class Database extends ListActivity {
 
         }
     }
+
+    public void onBackPressed() {
+        if (db.getCurOpenSub() != -1) {
+            db.setCurOpenSub(-1);
+            updateList();
+        } else if (db.getCurOpenCat() != -1) {
+            db.setCurOpenCat(-1);
+            updateList();
+        }
+    }
 }
