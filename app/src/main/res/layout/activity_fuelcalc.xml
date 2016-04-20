@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:rowCount="19"
+    android:columnCount="1">
+
+    <EditText
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/quantityInText"
+        android:hint="Enter Quantity of Items"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_column="0"
+        android:layout_row="15" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fuel_spinner"
+        android:entries="@array/fuel_array"
+        android:layout_row="17"
+        android:layout_column="0" />
+
+</GridLayout>
