@@ -77,6 +77,17 @@ public class DB {
         return itemList;
     }
 
+    public ArrayList<String> getCurList() {
+        ArrayList<String> list = new ArrayList<>();
+        if (curOpenCat == -1) {
+            return getCatList();
+        } else if (curOpenSub == -1) {
+            return getSubList();
+        } else {
+            return getItemList();
+        }
+    }
+
     public String getResourceName(int sub, int item) {
         return db.get(resourceCat).getSubs().get(sub).getItems().get(item).getName();
     }
