@@ -11,7 +11,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.memeteamsix.projectbridge.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="#1d1f1f">
+    android:background="@color/rustRed">
 
     <Button
         android:layout_width="wrap_content"
