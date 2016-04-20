@@ -4,7 +4,8 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
          android:columnCount="2"
-        android:rowCount="9">
+        android:rowCount="9"
+        android:background="#CE422B">
 
         <TextView
             android:layout_width="wrap_content"
@@ -13,55 +14,63 @@
             android:text="@string/official"
             android:id="@+id/textView2"
             android:layout_row="0"
-            android:layout_column="0" />
+            android:layout_column="0"
+            android:padding="15dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_web_jn"
         android:id="@+id/rust_web_btn"
         android:layout_row="1"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:background="@drawable/button_style"
+        android:longClickable="false" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_fb_jn"
         android:id="@+id/rust_fb_btn"
         android:layout_column="1"
-        android:layout_row="1" />
+        android:layout_row="1"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_tw_jn"
         android:id="@+id/rust_twt_btn"
         android:layout_row="2"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_updates"
         android:id="@+id/rust_up_btn"
         android:layout_row="2"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/forums_jn"
         android:id="@+id/facepunch_btn"
         android:layout_row="3"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/steam_forum_jn"
         android:id="@+id/steam_btn"
         android:layout_row="3"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:background="@drawable/button_style" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,45 +79,51 @@
         android:text="@string/community"
         android:id="@+id/textView3"
         android:layout_row="4"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:padding="15dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/reddit_jn"
         android:id="@+id/subreddit_btn"
         android:layout_row="5"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rustafied_jn"
         android:id="@+id/rustafied_btn"
         android:layout_row="5"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/oxiemod_jn"
         android:id="@+id/oxiemod_btn"
         android:layout_row="6"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/play_rust_hq_jn"
         android:id="@+id/playrust_btn"
         android:layout_row="6"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_io_jn"
         android:id="@+id/rustio_btn"
         android:layout_row="7"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:background="@drawable/button_style" />
 </GridLayout>
