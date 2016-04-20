@@ -6,4 +6,5 @@
     <color name="rustRed">#CE422B</color>
     <color name="rustBlack">#1D1F1F</color>
     <color name="rustWhite">#E4E5E0</color>
+    <color name="darkRustRed">#800000</color>
 </resources>

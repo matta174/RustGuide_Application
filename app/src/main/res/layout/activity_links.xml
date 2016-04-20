@@ -18,7 +18,7 @@
             android:padding="15dp" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_web_jn"
         android:id="@+id/rust_web_btn"
@@ -28,7 +28,7 @@
         android:longClickable="false" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_fb_jn"
         android:id="@+id/rust_fb_btn"
@@ -37,7 +37,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_tw_jn"
         android:id="@+id/rust_twt_btn"
@@ -46,7 +46,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_updates"
         android:id="@+id/rust_up_btn"
@@ -55,7 +55,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/forums_jn"
         android:id="@+id/facepunch_btn"
@@ -64,7 +64,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/steam_forum_jn"
         android:id="@+id/steam_btn"
@@ -83,7 +83,7 @@
         android:padding="15dp" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/reddit_jn"
         android:id="@+id/subreddit_btn"
@@ -92,7 +92,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rustafied_jn"
         android:id="@+id/rustafied_btn"
@@ -101,7 +101,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/oxiemod_jn"
         android:id="@+id/oxiemod_btn"
@@ -110,7 +110,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/play_rust_hq_jn"
         android:id="@+id/playrust_btn"
@@ -119,7 +119,7 @@
         android:background="@drawable/button_style" />
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="@string/rust_io_jn"
         android:id="@+id/rustio_btn"
