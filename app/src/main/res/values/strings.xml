@@ -18,4 +18,5 @@
     <string name="oxiemod_jn">Oxidemod</string>
     <string name="play_rust_hq_jn">Play Rust HQ</string>
     <string name="rust_io_jn">Rust:IO</string>
+    <string name="title_activity_database_list">DatabaseList</string>
 </resources>

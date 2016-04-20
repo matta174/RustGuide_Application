@@ -8,15 +8,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Huff on 4/19/2016.
  */
-public class DB {
+public class DB implements Serializable{
 
     private ArrayList<Category> db = new ArrayList<Category>();
-    private Context mCtx;
+    public transient Context mCtx;
     private static final String TAG = "DB";
 
     private int curOpenCat = -1;
@@ -61,6 +62,10 @@ public class DB {
         return catList;
     }
 
+    public ArrayList<Category> getDB(){
+        return db;
+    }
+
     public ArrayList<String> getSubList() {
         ArrayList<String> subList = new ArrayList<>();
         for (int i = 0; i < db.get(curOpenCat).getSubs().size(); i++) {
@@ -86,6 +91,10 @@ public class DB {
         } else {
             return getItemList();
         }
+    }
+
+    public Item getCurItem() {
+        return db.get(curOpenCat).getSubs().get(curOpenSub).getItems().get(curOpenItem);
     }
 
     public String getResourceName(int sub, int item) {

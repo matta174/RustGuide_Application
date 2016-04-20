@@ -1,11 +1,12 @@
 package com.memeteamsix.projectbridge;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jwnicholson on 4/18/2016.
  */
-public class Category {
+public class Category implements Serializable{
     private String name = "";
     private ArrayList<Subcategory> subs = new ArrayList<Subcategory>();
     private String picName;

@@ -1,8 +1,10 @@
 package com.memeteamsix.projectbridge;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,86 +14,78 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity
+public class DatabaseList extends ListActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private Button guides_btn;
-    private Button database_btn;
-    private Button tools_btn;
-    private Button links_btn;
 
-    private DB db = null;
-
-    //TAG for log files
-    private static final String TAG = "MainActivity";
+    ArrayAdapter<String> adapter;
+    DB db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_database_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        Button fab = (Button) findViewById(R.id.guides_btn);
-        Button fab2 = (Button) findViewById(R.id.database_btn);
-        Button fab3 = (Button) findViewById(R.id.tools_btn);
-        Button fab4 = (Button) findViewById(R.id.links_btn);
-        fab.setOnClickListener(a);
-        fab2.setOnClickListener(b);
-        fab3.setOnClickListener(c);
-        fab4.setOnClickListener(d);
-
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        db = new DB(this.getApplicationContext());
-        db.loadDB();
+        Intent i = getIntent();
+        db = (DB) i.getSerializableExtra("Database");
+
+        adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1);
+        updateList();
+    }
+    private void updateList() {
+        adapter.clear();
+        adapter.addAll(db.getCurList());
+        getListView().setAdapter(adapter);
     }
 
-    View.OnClickListener a = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent goToGuides = new Intent(getBaseContext(), Guides.class);
-            startActivity(goToGuides);
-        }
-    };
-    View.OnClickListener b = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent goToDatabase = new Intent(getBaseContext(), DatabaseList.class);
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        if (db.getCurOpenCat() == -1) {
+            db.setCurOpenCat(position);
+            updateList();
+        } else if (db.getCurOpenSub() == -1) {
+            db.setCurOpenSub(position);
+            updateList();
+        } else {
+            db.setCurOpenItem(position);
+            Intent goToDatabase = new Intent (getBaseContext(), Database.class);
             goToDatabase.putExtra("Database", db);
             startActivity(goToDatabase);
         }
-    };
-    View.OnClickListener c = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent goToTools = new Intent(getBaseContext(), Tools.class);
-            startActivity(goToTools);
-        }
-    };
-    View.OnClickListener d = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent goToLinks = new Intent(getBaseContext(), Links.class);
-            startActivity(goToLinks);
-        }
-    };
-
+    }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (db.getCurOpenSub() != -1) {
+            db.setCurOpenSub(-1);
+            updateList();
+        } else if (db.getCurOpenCat() != -1) {
+            db.setCurOpenCat(-1);
+            updateList();
         } else {
             super.onBackPressed();
         }
@@ -100,7 +94,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.database_list, menu);
         return true;
     }
 
@@ -142,8 +136,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-    public DB getDb() {
-        return db;
     }
 }

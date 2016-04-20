@@ -1,18 +1,19 @@
 package com.memeteamsix.projectbridge;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Database extends ListActivity {
+public class Database extends AppCompatActivity {
 
-    ArrayAdapter<String> adapter;
-    DB db;
+    DB db = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,41 +21,24 @@ public class Database extends ListActivity {
 
         setContentView(R.layout.activity_database);
 
-        db = new DB(this.getApplicationContext());
-        db.loadDB();
+        TextView nameValue = (TextView) findViewById(R.id.nameValue);
+        TextView resourcesValue = (TextView) findViewById(R.id.resources1Value);
+        TextView descriptoinValue = (TextView) findViewById(R.id.descriptionValue);
 
-        adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1);
-        updateList();
-    }
+        Intent in = getIntent();
+        db = (DB) in.getSerializableExtra("Database");
 
-    private void updateList() {
-        adapter.clear();
-        adapter.addAll(db.getCurList());
-        getListView().setAdapter(adapter);
-    }
+        Item item = db.getCurItem();
 
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        if (db.getCurOpenCat() == -1) {
-            db.setCurOpenCat(position);
-            updateList();
-        } else if (db.getCurOpenSub() == -1) {
-            db.setCurOpenSub(position);
-            updateList();
-        } else {
-            this.finish();
+        nameValue.setText(item.getName());
+        descriptoinValue.setText(item.getDesc());
+        ArrayList<Cost> cost = item.getCost();
+        String res = "";
+        for (int i = 0; i < cost.size(); i++){
+            res += cost.get(i).qty + "\t" +
+                    db.getResourceName(cost.get(i).subcatIndex, cost.get(i).subcatIndex) + "\n";
         }
+        resourcesValue.setText(res);
     }
 
-    public void onBackPressed() {
-        if (db.getCurOpenSub() != -1) {
-            db.setCurOpenSub(-1);
-            updateList();
-        } else if (db.getCurOpenCat() != -1) {
-            db.setCurOpenCat(-1);
-            updateList();
-        } else {
-            this.finish();
-        }
-    }
 }

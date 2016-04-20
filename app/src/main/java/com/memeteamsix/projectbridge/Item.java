@@ -1,11 +1,13 @@
 package com.memeteamsix.projectbridge;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jwnicholson on 4/18/2016.
  */
-public class Item {
+public class Item implements Serializable{
+
     private ArrayList<Cost> cost = new ArrayList<Cost>();
     private String name;
     private String picName;
@@ -48,5 +50,13 @@ public class Item {
 
     public void setPicName(String picName) {
         this.picName = picName;
+    }
+
+    public ArrayList<Cost> getCost() {
+        return cost;
+    }
+
+    public void setCost(ArrayList<Cost> cost) {
+        this.cost = cost;
     }
 }
