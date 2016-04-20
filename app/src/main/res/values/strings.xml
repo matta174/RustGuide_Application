@@ -5,4 +5,17 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="official">Official Links</string>
+    <string name="community">Community Links</string>
+    <string name="rust_web_jn">Rust Website</string>
+    <string name="rust_fb_jn">Rust Facebook</string>
+    <string name="rust_tw_jn">Rust Twitter</string>
+    <string name="rust_updates">Rust Updates</string>
+    <string name="forums_jn">Facepunch Forums</string>
+    <string name="steam_forum_jn">Steam Forums</string>
+    <string name="reddit_jn">Rust Subreddit</string>
+    <string name="rustafied_jn">Rustafied</string>
+    <string name="oxiemod_jn">Oxidemod</string>
+    <string name="play_rust_hq_jn">Play Rust HQ</string>
+    <string name="rust_io_jn">Rust:IO</string>
 </resources>
