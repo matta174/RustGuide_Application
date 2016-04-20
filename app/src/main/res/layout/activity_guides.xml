@@ -8,6 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Basic Survival Guide"
+        android:drawableLeft="@drawable/ic_directions_run_black_24px"
         android:id="@+id/rustGuide_btn"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_style" />
