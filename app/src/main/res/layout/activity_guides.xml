@@ -10,6 +10,6 @@
         android:text="Basic Survival Guide"
         android:id="@+id/rustGuide_btn"
         android:layout_gravity="center_horizontal"
-        android:background="#00ffffff" />
+        android:background="@drawable/button_style" />
 
 </LinearLayout>
