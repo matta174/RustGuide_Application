@@ -17,6 +17,7 @@ public class Database extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_database);
 
         db = new DB(this.getApplicationContext());
@@ -41,7 +42,7 @@ public class Database extends ListActivity {
             db.setCurOpenSub(position);
             updateList();
         } else {
-
+            this.finish();
         }
     }
 
@@ -52,6 +53,8 @@ public class Database extends ListActivity {
         } else if (db.getCurOpenCat() != -1) {
             db.setCurOpenCat(-1);
             updateList();
+        } else {
+            this.finish();
         }
     }
 }

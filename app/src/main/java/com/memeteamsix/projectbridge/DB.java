@@ -115,18 +115,15 @@ public class DB {
             is.close();
             obj = new JSONObject(new String(buffer, "UTF-8"));
             JSONArray arr = obj.getJSONArray("category");
-            Log.i(TAG,arr.toString());
             for (int i = 0; i < arr.length(); i++)
             {
                 String post_id = arr.getJSONObject(i).getString("name");
                 if (post_id.equals("Resources")){
                     resourceCat = i;
                 }
-                Log.i(TAG,post_id);
                 String post_img = arr.getJSONObject(i).getString("img");
                 JSONObject obj2 = arr.getJSONObject(i);
                 JSONArray arr2 = obj2.getJSONArray("subcategory");
-                Log.i(TAG,arr2.toString());
                 ArrayList<Subcategory> subcatList = new ArrayList<Subcategory>();
                 for (int i2 = 0; i2 < arr2.length(); i2++)
                 {
@@ -159,15 +156,12 @@ public class DB {
                         }
                         Item item = new Item(post_id3, post_img2, post_desc, costList);
                         itemList.add(item);
-                        Log.i(TAG,post_id3 + "loaded.");
                     }
                     Subcategory subcat = new Subcategory(post_id2, itemList);
                     subcatList.add(subcat);
-                    Log.i(TAG,post_id2 + "loaded.");
                 }
                 Category cat = new Category(post_img, post_id, subcatList);
                 db.add(cat);
-                Log.i(TAG,post_id + "loaded.");
             }
         }catch(Exception e){
             e.printStackTrace();
