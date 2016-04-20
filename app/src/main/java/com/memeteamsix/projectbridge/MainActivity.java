@@ -36,7 +36,10 @@ public class MainActivity extends AppCompatActivity
         Button fab2 = (Button) findViewById(R.id.database_btn);
         Button fab3 = (Button) findViewById(R.id.tools_btn);
         Button fab4 = (Button) findViewById(R.id.links_btn);
-
+        fab.setOnClickListener(a);
+        fab2.setOnClickListener(b);
+        fab3.setOnClickListener(c);
+        fab4.setOnClickListener(d);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
