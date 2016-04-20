@@ -22,7 +22,10 @@
             android:name=".CraftingCalculator"
             android:label="Crafting Calculator"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Links"></activity>
+        <activity
+            android:name=".Database"
+            android:label="Database"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
