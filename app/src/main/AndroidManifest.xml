@@ -26,6 +26,16 @@
             android:name=".Database"
             android:label="Database"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Tools"
+            android:label="Tools"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Links"
+            android:label="Links"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
     </application>
 
 </manifest>
